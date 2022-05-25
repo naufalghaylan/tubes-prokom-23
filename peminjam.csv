@@ -1,4 +1,6 @@
-Nama,Usia,No_Identitas,Alamat,Telefon
+Nama,Usia,No_Identitas,Alamat,Telefon, Metode_Pembayaran
 Tes,23,12312123,Solo,12213
 Tes 2,23,123321,Solo,1232
 Tes 3,43,213213,Solo,12312
+Tes 4,23,12321,Surkarta,2323
+
