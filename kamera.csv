@@ -1,6 +1,6 @@
-Jenis,Harga,Tanggal_Dipinjam,Tanggal_Dikembalikan
-Canon,5000,
-Nikon,10000,
-Sony,7500,
-Fujifilm,12500,    
+Kode,Jenis,Harga_per_Hari,Tanggal_Dipinjam,Tanggal_Dikembalikan
+A,Canon,55000,
+B,Nikon,50000,
+C,Sony,60000,
+D,Fujifilm,75000,    
 
