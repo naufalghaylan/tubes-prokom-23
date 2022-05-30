@@ -44,6 +44,8 @@ def saveid():
 
 def waktu():
     global durasi
+    global tanggal
+    global pengembalian
     tahun = int(input("Masukkan tahun = "))
     bulan = int(input("Masukkan bulan = "))
     tgl = int(input("Masukkan tanggal = "))
@@ -51,8 +53,28 @@ def waktu():
     durasi = int(input("Masukkan durasi peminjaman = "))
     pengembalian = tanggal + timedelta(days=durasi)
     print("Tanggal Peminjaman", tanggal)
-    print("Durasi Peminjaman", durasi)
+    print("Durasi Peminjaman", durasi, "Hari")
     print("Tanggal Pengembalian", pengembalian.strftime("%d %B %Y"))
+
+def canon():
+    global hargacamera
+    hargacamera = durasi*5000
+    print("Total Biaya = Rp",hargacamera)
+
+def nikon():
+    global hargacamera
+    hargacamera = durasi*50000
+    print("Total Biaya = Rp",hargacamera)
+
+def sony():
+    global hargacamera
+    hargacamera = durasi*60000
+    print("Total Biaya = Rp",hargacamera)
+
+def fujifilm():
+    global hargacamera
+    hargacamera = durasi*75000
+    print("Total Biaya = Rp",hargacamera)
 
 def sewacam():
     kamera = input("Masukkan Kode Kamera yang Akan Disewa = ")
@@ -64,22 +86,6 @@ def sewacam():
         sony()
     else:
         fujifilm()
-
-def canon():
-    hargacanon = durasi*55000
-    print("Total Biaya = Rp",hargacanon)
-
-def nikon():
-    harganikon = durasi*55000
-    print("Total Biaya = Rp",harganikon)
-
-def sony():
-    hargasony = durasi*55000
-    print("Total Biaya = Rp",hargasony)
-
-def fujifilm():
-    hargafuji = durasi*55000
-    print("Total Biaya = Rp",hargafuji)
 
 def payment():
     pf = [
@@ -100,12 +106,18 @@ def payment():
 
 def cash():
     print("Silakan melakukan pembayaran secara langsung dengan petugas sesuai dengan total harga")
+    global metodepem
+    metodepem = "Cash"
 
 def ewallet():
     print("Silakan melakukan pembayaran melalui E-Wallet dengan nomor E-Money sebagai berikut (pilih salah satu) \nDana = 089******312 \nShopeePay = 089******312 \nOVO = 089******312 \nLink Aja = 089******312")
+    global metodepem
+    metodepem = "E-Wallet"
 
 def bank():
     print("Silakan melakukan pembayaran melalui Rekening Bank dengan nomor rekening sebagai berikut (pilih salah satu) \nBNI = 98129812831 \nBRI = 812938189173 \nMandiri = 98298198719")
+    global metodepem
+    metodepem = "Bank"
 
 def pilihpf():
     via = int(input("Masukkan Kode Plaftform Pembayaran = "))
@@ -125,9 +137,11 @@ print()
 identitas()
 print()
 pilihkamera()
-saveid()
+# saveid()
 print("PEMINJAMAN KAMERA")
+print()
 waktu()
+print()
 sewacam()
 payment()
 pilihpf()
@@ -137,6 +151,15 @@ print()
 print("===================================================")
 print("                 STRUK PEMBELIAN") 
 print("===================================================")
-print("IDENTITAS PEMINJAM")
-print("Nama\t=", nama)
-print("Usia\t")
+print("\t\tIDENTITAS PEMINJAM")
+print("Nama\t\t\t=", nama)
+print("Usia\t\t\t=", usia)
+print("Nomer Identitas\t\t=", no_id)
+print("Alamat\t\t\t=", alamat)
+print("Telefon\t\t\t=", telefon)
+print("Tanggal Peminjaman\t=", tanggal)
+print("Durasi Peminjaman\t=", durasi, "Hari")
+print("Tanggal Pengembalian\t=", pengembalian.strftime("%d %B %Y"))
+
+print("Metode Pembayaran\t=", metodepem)
+print("Total Pembayaran\t=", hargacamera)
