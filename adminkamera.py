@@ -163,3 +163,4 @@ print("Tanggal Pengembalian\t=", pengembalian.strftime("%d %B %Y"))
 
 print("Metode Pembayaran\t=", metodepem)
 print("Total Pembayaran\t=", hargacamera)
+print("")
