@@ -58,7 +58,7 @@ def waktu():
 
 def canon():
     global hargacamera
-    hargacamera = durasi*5000
+    hargacamera = durasi*55000
     print("Total Biaya = Rp",hargacamera)
 
 def nikon():
@@ -105,17 +105,17 @@ def payment():
     print("===================================================")
 
 def cash():
-    print("Silakan melakukan pembayaran secara langsung dengan petugas sesuai dengan total harga")
+    print("Silahkan melakukan pembayaran secara langsung dengan petugas sesuai dengan total harga")
     global metodepem
     metodepem = "Cash"
 
 def ewallet():
-    print("Silakan melakukan pembayaran melalui E-Wallet dengan nomor E-Money sebagai berikut (pilih salah satu) \nDana = 089******312 \nShopeePay = 089******312 \nOVO = 089******312 \nLink Aja = 089******312")
+    print("Silahkan melakukan pembayaran melalui E-Wallet dengan nomor E-Money sebagai berikut : (pilih salah satu) \nDana = 089******312 \nShopeePay = 089******312 \nOVO = 089******312 \nLink Aja = 089******312")
     global metodepem
     metodepem = "E-Wallet"
 
 def bank():
-    print("Silakan melakukan pembayaran melalui Rekening Bank dengan nomor rekening sebagai berikut (pilih salah satu) \nBNI = 98129812831 \nBRI = 812938189173 \nMandiri = 98298198719")
+    print("Silahkan melakukan pembayaran melalui Rekening Bank dengan nomor rekening sebagai berikut : (pilih salah satu) \nBNI = 98129812831 \nBRI = 812938189173 \nMandiri = 98298198719")
     global metodepem
     metodepem = "Bank"
 
@@ -149,7 +149,7 @@ pilihpf()
 #struk
 print()
 print("===================================================")
-print("                 STRUK PEMBELIAN") 
+print("_____________STRUK PEMINJAMAN KAMERA_______________") 
 print("===================================================")
 print("\t\tIDENTITAS PEMINJAM")
 print("Nama\t\t\t=", nama)
