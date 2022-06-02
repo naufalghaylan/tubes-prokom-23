@@ -8,18 +8,6 @@ from datetime import *
 
 
 
-def tambahataukurang():
-    global xtambahataukurang
-    print()
-    print("===================================================")
-    print("Selamat Datang di Program Rental Kamera untuk Admin") #yang ini tolong diedit biar apik dong dibikikin gitu lah kek biasanya program pak danu
-    print("===================================================")
-    print("                    MENU PROGRAM")
-    print("---------------------------------------------------")
-    print("1. Program Peminjaman Kamera")
-    print("2. Program Pengembalian Kamera") #iki tolong aku ga tau tulisane gimana hehe
-    print("---------------------------------------------------")
-    xtambahataukurang = int(input("Masukkan pilihan menu: "))
     
 def identitas():
     global nama #global biar variabel bisa dipanggil diluar fungsi
