@@ -53,7 +53,7 @@ def waktu():
     pengembalian = tanggal + timedelta(days=durasi)
     print()
     print("Tanggal Peminjaman", tanggal)
-    print("Durasi Peminjaman", durasi, "Hari")
+    print("Durasi Peminjaman (hari)", durasi, "Hari")
     print("Tanggal Pengembalian", pengembalian.strftime("%d %B %Y"))
 
 
@@ -63,28 +63,28 @@ def canon():
     hargacamera = durasi*55000
     cameraterpilih = "Canon"
     print("Camera yang dipinjam =", cameraterpilih)
-    print("Total Biaya = Rp",hargacamera)
+    print(f'total Biaya = Rp. {hargacamera:,}')
 def nikon():
     global hargacamera
     global cameraterpilih
     hargacamera = durasi*50000
     cameraterpilih = "Nikon"
     print("Camera yang dipinjam =", cameraterpilih)
-    print("Total Biaya = Rp",hargacamera)
+    print(f'total Biaya = Rp. {hargacamera:,}')
 def sony():
     global hargacamera
     global cameraterpilih
     hargacamera = durasi*60000
     cameraterpilih = "Sony"
     print("Camera yang dipinjam =", cameraterpilih)
-    print("Total Biaya = Rp",hargacamera)
+    print(f'total Biaya = Rp. {hargacamera:,}')
 def fujifilm():
     global hargacamera
     global cameraterpilih
     hargacamera = durasi*75000
     cameraterpilih = "Fujifilm"
     print("Camera yang dipinjam =", cameraterpilih)
-    print("Total Biaya = Rp",hargacamera)
+    print(f'total Biaya = Rp. {hargacamera:,}')
 
 def sewacam():
     kamera = input("Masukkan Kode Kamera yang Akan Disewa = ")
@@ -357,6 +357,3 @@ def tambahkamera():
 
 tambahataukurang()
 tak()
-    
-
-        
