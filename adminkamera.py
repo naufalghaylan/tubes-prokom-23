@@ -53,15 +53,9 @@ def waktu():
     durasi = int(input("Masukkan durasi peminjaman\t = "))
     pengembalian = tanggal + timedelta(days=durasi)
     print()
-<<<<<<< HEAD
     print("Tanggal Peminjaman\t ", tanggal.strftime("%d %B %Y"))
     print("Durasi Peminjaman\t ", durasi, "Hari")
     print("Tanggal Pengembalian\t ", pengembalian.strftime("%d %B %Y"))
-=======
-    print("Tanggal Peminjaman", tanggal)
-    print("Durasi Peminjaman (hari)", durasi, "Hari")
-    print("Tanggal Pengembalian", pengembalian.strftime("%d %B %Y"))
->>>>>>> 49efebda9dd968df643b93255ff34a5630dfca6f
 
 
 def canon():
@@ -69,49 +63,29 @@ def canon():
     global cameraterpilih
     hargacamera = durasi*55000
     cameraterpilih = "Canon"
-<<<<<<< HEAD
     print("Camera yang dipinjam\t\t      =", cameraterpilih)
     print("Total Biaya\t\t\t      = Rp",hargacamera)
-=======
-    print("Camera yang dipinjam =", cameraterpilih)
-    print(f'total Biaya = Rp. {hargacamera:,}')
->>>>>>> 49efebda9dd968df643b93255ff34a5630dfca6f
 def nikon():
     global hargacamera
     global cameraterpilih
     hargacamera = durasi*50000
     cameraterpilih = "Nikon"
-<<<<<<< HEAD
     print("Camera yang dipinjam\t\t      =", cameraterpilih)
     print("Total Biaya\t\t\t      = Rp",hargacamera)
-=======
-    print("Camera yang dipinjam =", cameraterpilih)
-    print(f'total Biaya = Rp. {hargacamera:,}')
->>>>>>> 49efebda9dd968df643b93255ff34a5630dfca6f
 def sony():
     global hargacamera
     global cameraterpilih
     hargacamera = durasi*60000
     cameraterpilih = "Sony"
-<<<<<<< HEAD
     print("Camera yang dipinjam\t\t      =", cameraterpilih)
     print("Total Biaya\t\t\t      = Rp",hargacamera)
-=======
-    print("Camera yang dipinjam =", cameraterpilih)
-    print(f'total Biaya = Rp. {hargacamera:,}')
->>>>>>> 49efebda9dd968df643b93255ff34a5630dfca6f
 def fujifilm():
     global hargacamera
     global cameraterpilih
     hargacamera = durasi*75000
     cameraterpilih = "Fujifilm"
-<<<<<<< HEAD
     print("Camera yang dipinjam\t\t      =", cameraterpilih)
     print("Total Biaya\t\t\t      = Rp",hargacamera)
-=======
-    print("Camera yang dipinjam =", cameraterpilih)
-    print(f'total Biaya = Rp. {hargacamera:,}')
->>>>>>> 49efebda9dd968df643b93255ff34a5630dfca6f
 
 def sewacam():
     kamera = input("Masukkan Kode Kamera yang Akan Disewa = ")
