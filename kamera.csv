@@ -1,5 +1,5 @@
 Kode,Jenis,Harga_per_Hari,Stok,Tanggal_Dipinjam,Tanggal_Dikembalikan
 A,Canon,55000,-1,2022-12-12,24 December 2022
 B,Nikon,50000,-1,2022-12-12,24 December 2022
-C,Sony,60000,+1,,
+C,Sony,60000,-1,2020-02-02,04 February 2020
 D,Fujifilm,75000,+1,,
