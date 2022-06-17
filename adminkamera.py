@@ -8,6 +8,54 @@ from datetime import *
 
 
 
+def tak():
+    if xtambahataukurang == 1:
+        with open("kamera.csv", 'r') as tambah_csv:
+            tambah_reader = csv.reader(tambah_csv)
+            lines = list(tambah_reader)
+            if lines[1][3] and lines[2][3] and lines[3][3] and lines[4][3] == "-1":
+                print("")
+                print("Maaf Seluruh Kamera sudah terpinjam")
+                print("")
+                print("Ketik 1 untuk kembali ke menu")
+                print("Ketik 2 untuk keluar")
+                campenuh = int(input(""))
+                print("")
+                if campenuh == 1:
+                    campenuh = campenuh-1
+                    tambahataukurang()
+                    tak()
+                elif campenuh == 2:
+                    quit
+                else:
+                    print("Tolong masukkan input yang sesuai")
+                    tak()
+            else:
+                main()
+    elif xtambahataukurang == 2:
+        tambahkamera()
+    elif xtambahataukurang == 3:
+        quit
+    else:
+        print("")
+        print("Input tidak diterima, tolong pilih sesuai menu")
+        tambahataukurang()
+        tak()
+
+def tambahataukurang():
+    global xtambahataukurang
+    print()
+    print("===================================================")
+    print("Selamat Datang di Program Rental Kamera untuk Admin") 
+    print("===================================================")
+    print("                    MENU PROGRAM")
+    print("---------------------------------------------------")
+    print("1. Program Peminjaman Kamera")
+    print("2. Program Pengembalian Kamera")
+    print("3. Exit")
+    print("---------------------------------------------------")
+    xtambahataukurang = int(input("Masukkan pilihan menu: "))
+
     
 def identitas():
     global nama #global biar variabel bisa dipanggil diluar fungsi
@@ -45,17 +93,17 @@ def waktu():
     global durasi
     global tanggal
     global pengembalian
-    print("NOTE: tanggal, bulan, tahun, dan durasi dalam format angka")
-    tahun = int(input("Masukkan tahun\t\t\t = "))
-    bulan = int(input("Masukkan bulan\t\t\t = "))
-    tgl = int(input("Masukkan tanggal\t\t = "))
+    print("NOTE: Input tahun, bulan, tanggal, dan durasi dalam format angka")
+    tahun = int(input("Masukkan tahun \t\t   = "))
+    bulan = int(input("Masukkan bulan \t\t   = "))
+    tgl = int(input("Masukkan tanggal \t   = "))
     tanggal = date(tahun, bulan, tgl)
-    durasi = int(input("Masukkan durasi peminjaman\t = "))
+    durasi = int(input("Masukkan durasi peminjaman = "))
     pengembalian = tanggal + timedelta(days=durasi)
     print()
-    print("Tanggal Peminjaman\t ", tanggal.strftime("%d %B %Y"))
-    print("Durasi Peminjaman\t ", durasi, "Hari")
-    print("Tanggal Pengembalian\t ", pengembalian.strftime("%d %B %Y"))
+    print("Tanggal Peminjaman\t", tanggal.strftime("%d %B %Y"))
+    print("Durasi Peminjaman (hari)", durasi, "Hari")
+    print("Tanggal Pengembalian\t", pengembalian.strftime("%d %B %Y"))
 
 
 def canon():
@@ -63,84 +111,116 @@ def canon():
     global cameraterpilih
     hargacamera = durasi*55000
     cameraterpilih = "Canon"
-    print("Camera yang dipinjam\t\t      =", cameraterpilih)
-    print("Total Biaya\t\t\t      = Rp",hargacamera)
+    print("Camera yang dipinjam =", cameraterpilih)
+    print(f'Total Biaya = Rp. {hargacamera:,}')
 def nikon():
     global hargacamera
     global cameraterpilih
     hargacamera = durasi*50000
     cameraterpilih = "Nikon"
-    print("Camera yang dipinjam\t\t      =", cameraterpilih)
-    print("Total Biaya\t\t\t      = Rp",hargacamera)
+    print("Camera yang dipinjam =", cameraterpilih)
+    print(f'Total Biaya = Rp. {hargacamera:,}')
 def sony():
     global hargacamera
     global cameraterpilih
     hargacamera = durasi*60000
     cameraterpilih = "Sony"
-    print("Camera yang dipinjam\t\t      =", cameraterpilih)
-    print("Total Biaya\t\t\t      = Rp",hargacamera)
+    print("Camera yang dipinjam =", cameraterpilih)
+    print(f'Total Biaya = Rp. {hargacamera:,}')
 def fujifilm():
     global hargacamera
     global cameraterpilih
     hargacamera = durasi*75000
     cameraterpilih = "Fujifilm"
-    print("Camera yang dipinjam\t\t      =", cameraterpilih)
-    print("Total Biaya\t\t\t      = Rp",hargacamera)
+    print("Camera yang dipinjam =", cameraterpilih)
+    print(f'Total Biaya = Rp. {hargacamera:,}')
 
 def sewacam():
-    kamera = input("Masukkan Kode Kamera yang Akan Disewa = ")
-    with open("kamera.csv", 'r') as tambah_csv:
-        tambah_reader = csv.reader(tambah_csv)
-        lines = list(tambah_reader)
-        if kamera == "A" or "a":
-            if lines[1][3] == "-1":
-                sore = input("Maaf Kamera telah dirental, Sewa Kamera Lain (S)/Exit (E)? ")
-                if sore == "S" or "s":
+    def dsewacam():
+        kamera = input("Masukkan Kode Kamera yang Akan Disewa = ")
+        with open("kamera.csv", 'r') as tambah_csv:
+            tambah_reader = csv.reader(tambah_csv)
+            lines = list(tambah_reader)
+            if kamera == "A":
+                if lines[1][3] == "-1":
+                    print("Maaf Kamera telah dirental")
                     print("")
-                    sewacam()
+                    print("Ketik 1 jika ingin memilih kamera lain")
+                    print("Ketik 2 jika ingin keluar dari program")
+                    def dpilihlain():
+                        pilihlain = int(input(">> "))
+                        if pilihlain == 1:
+                            print("")
+                            sewacam()
+                        elif pilihlain == 2:
+                            quit()
+                        else:
+                            print("Input tidak sesuai")
+                            dpilihlain()
+                    dpilihlain()
                 else:
-                    tambahataukurang()
-                    tak()
-            else:   
-                canon()
-        elif kamera == "B" or "b":
-            if lines[2][3] == "-1":
-                sore = input("Maaf Kamera telah dirental, Sewa Kamera Lain (S)/Exit (E)? ")
-                if sore == "S" or "s":
+                    canon()
+            elif kamera == "B":
+                if lines[2][3] == "-1":
+                    print("Maaf Kamera telah dirental")
                     print("")
-                    sewacam()
+                    print("Ketik 1 jika ingin memilih kamera lain")
+                    print("Ketik 2 jika ingin keluar dari program")
+                    def dpilihlain():
+                        pilihlain = int(input(">> "))
+                        if pilihlain == 1:
+                            print("")
+                            sewacam()
+                        elif pilihlain == 2:
+                            quit()
+                        else:
+                            print("Input tidak sesuai")
+                            dpilihlain()
+                    dpilihlain()
                 else:
-                    tambahataukurang()
-                    tak()
+                    nikon()
+            elif kamera == "C":
+                if lines[3][3] == "-1":
+                    print("Maaf Kamera telah dirental")
+                    print("")
+                    print("Ketik 1 jika ingin memilih kamera lain")
+                    print("Ketik 2 jika ingin keluar dari program")
+                    def dpilihlain():
+                        pilihlain = int(input(">> "))
+                        if pilihlain == 1:
+                            print("")
+                            sewacam()
+                        elif pilihlain == 2:
+                            quit()
+                        else:
+                            print("Input tidak sesuai")
+                            dpilihlain()
+                    dpilihlain()
+                else:
+                    sony()
+            elif kamera == "D":
+                if lines[4][3] == "-1":
+                    print("Maaf Kamera telah dirental")
+                    print("")
+                    print("Ketik 1 jika ingin memilih kamera lain")
+                    print("Ketik 2 jika ingin keluar dari program")
+                    def dpilihlain():
+                        pilihlain = int(input(">> "))
+                        if pilihlain == 1:
+                            print("")
+                            sewacam()
+                        elif pilihlain == 2:
+                            quit()
+                        else:
+                            print("Input tidak sesuai")
+                            dpilihlain()
+                    dpilihlain()
+                else:
+                    fujifilm()
             else:
-                nikon()
-        elif kamera == "C" or "c":
-            if lines[3][3] == "-1":
-                sore = input("Maaf Kamera telah dirental, Sewa Kamera Lain (S)/Exit (E)? ")
-                if sore == "S":
-                    print("")
-                    sewacam()
-                else:
-                    tambahataukurang()
-                    tak()
-            else:
-                sony()
-        elif kamera == "D" or "d":
-            if lines[4][3] == "-1":
-                sore = input("Maaf Kamera telah dirental, Sewa Kamera Lain (S)/Exit (E)? ")
-                if sore == "S" or "s":
-                    print("")
-                    sewacam()
-                else:
-                    tambahataukurang()
-                    tak()
-            else:
-                fujifilm()
-        else:
-            print("")
-            print("Input tidak diterima, tolong pilih sesuai menu")
-            print("")
-            sewacam()
+                print("Input tidak sesuai")
+                dsewacam()
+    dsewacam()
 
 
 
@@ -177,18 +257,18 @@ def bank():
     metodepem = "Bank"
 
 def pilihpf():
-    via = int(input("Masukkan Kode Plaftform Pembayaran = "))
-    if via == 1:
-        cash()
-    elif via == 2:
-        ewallet()
-    elif via == 3:
-        bank()
-    else:
-        print("")
-        print("Input tidak diterima, tolong pilih sesuai menu")
-        print("")
-        pilihpf()
+    def dpilihpf():
+        via = int(input("Masukkan Kode Plaftform Pembayaran = "))
+        if via == 1:
+            cash()
+        elif via == 2:
+            ewallet()
+        elif via == 3:
+            bank()
+        else:
+            print("Input tidak sesuai")
+            dpilihpf()
+    dpilihpf()
 
 
 def saveid():
@@ -198,32 +278,7 @@ def saveid():
         peminjam_writer = csv.DictWriter(csv_peminjam, fieldnames=penyewa_header)
         peminjam_writer.writerows(penyewa_data)
 
-def tak():
-    if xtambahataukurang == 1:
-        main()
-    elif xtambahataukurang == 2:
-        tambahkamera()
-    elif xtambahataukurang == 3:
-        quit
-    else:
-        print("")
-        print("Input tidak diterima, tolong pilih sesuai menu")
-        tambahataukurang()
-        tak()
 
-def tambahataukurang():
-    global xtambahataukurang
-    print()
-    print("===================================================")
-    print("Selamat Datang di Program Rental Kamera untuk Admin") #yang ini tolong diedit biar apik dong dibikikin gitu lah kek biasanya program pak danu
-    print("===================================================")
-    print("                    MENU PROGRAM")
-    print("---------------------------------------------------")
-    print("1. Program Peminjaman Kamera")
-    print("2. Program Pengembalian Kamera") #iki tolong aku ga tau tulisane gimana hehe
-    print("3. Exit")
-    print("---------------------------------------------------")
-    xtambahataukurang = int(input("Masukkan pilihan menu: "))
 
 with open("kamera.csv", 'r') as kurang_csv:
     kurang_reader = csv.reader(kurang_csv)
@@ -267,6 +322,7 @@ def main():
     identitas()
     print()
     pilihkamera()
+    
     print("PEMINJAMAN KAMERA")
     print()
     waktu()
@@ -295,21 +351,31 @@ def main():
     print("Metode Pembayaran\t=", metodepem)
     print("Total Pembayaran\t= Rp", hargacamera)
     print("===================================================")
-    global cl 
-    print("Apakah anda ingin memasukkan data peminjaman lain? (Y/N)")
-    cl = str(input(""))
-    if cl == "N" or "n":
-        global kmu
-        print("Apakah anda ingin kembali ke menu utama?(Y/N)")
-        kmu = str(input(""))
-        if kmu == "Y" or "y":
-            tambahataukurang()
-            tak()
-        if kmu == "N" or "n":
-            print("Terima kasih telah menginput data peminjam")
-            quit
-    if cl == "Y" or "y":
-        main()
+    def mcl():
+        global cl 
+        print("Apakah anda ingin memasukkan data peminjam lain? (Y/N)") 
+        cl = str(input(">> "))
+        if cl == "N":
+            def dkmu():
+                global kmu
+                print("Apakah anda ingin kembali ke menu utama?(Y/N)")
+                kmu = str(input(">> "))
+                if kmu == "Y":
+                    tambahataukurang()
+                    tak()
+                elif kmu == "N":
+                    print("Terima kasih telah menginput data peminjam")
+                    quit
+                else: 
+                    print("Input tidak sesuai")
+                    mcl()
+            dkmu()
+        elif cl == "Y":
+            main()
+        else:
+            print("Input tidak sesuai")
+            mcl()
+    mcl()
 
 
 with open("kamera.csv", 'r') as tambah_csv:
@@ -358,36 +424,45 @@ def tambahkamera():
             print("{:<5} {:<13} {:<11} {:<15}"
     .format(line['Kode'], line['Jenis'], line["Harga_per_Hari"], line['Stok']))
     print("---------------------------------------------------")
-    pilihantambahkamera = input(str("Masukkan kode kamera: "))
-    if pilihantambahkamera == "A" or "a":
-        tambahcanon()
-    elif pilihantambahkamera == "B" or "b":
-        tambahnikon()
-    elif pilihantambahkamera == "C" or "c":
-        tambahsony()
-    elif pilihantambahkamera == "D" or "d":
-        tambahfujifilm()
-    else:
-        print("")
-        print("Input tidak diterima, tolong pilih sesuai menu")
-        print("")
-        tambahkamera()
-
-    global clk 
+    def tambahpilihkamera():
+        pilihantambahkamera = input(str("Masukkan kode kamera: "))
+        if pilihantambahkamera == "A":
+            tambahcanon()
+        elif pilihantambahkamera == "B":
+            tambahnikon()
+        elif pilihantambahkamera == "C":
+            tambahsony()
+        elif pilihantambahkamera == "D":
+            tambahfujifilm()
+        else:
+            print("Input tidak sesuai")
+            tambahpilihkamera()
+    tambahpilihkamera()
     print("Apakah anda ingin menambahkan stok kamera lain? (Y/N)")
-    clk = str(input(""))
-    if clk == "Y" or "y":
-        tambahkamera()
-    if clk == "N" or "n":
-        global kmu
-        print("Apakah anda ingin kembali ke menu utama?(Y/N)")
-        kmu = str(input(""))
-        if kmu == "Y" or "y":
-            tambahataukurang()
-            tak()
-        if kmu == "N" or "n":
-            print("Terima kasih telah menginput data kamera")
-            quit
+    def dclk():
+        global clk 
+        clk = str(input(">> "))
+        if clk == "Y":
+            tambahkamera()
+        elif clk == "N":
+            def dkmu():
+                global kmu
+                print("Apakah anda ingin kembali ke menu utama?(Y/N)")
+                kmu = str(input(">> "))
+                if kmu == "Y":
+                    tambahataukurang()
+                    tak()
+                elif kmu == "N":
+                    print("Terima kasih telah menginput data kamera")
+                    quit
+                else:
+                    print("Input tidak sesuai")
+                    dkmu()
+            dkmu()
+        else:
+            print("Input tidak sesuai")
+            dclk()
+    dclk()
 
 
 
