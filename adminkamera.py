@@ -101,9 +101,9 @@ def waktu():
     durasi = int(input("Masukkan durasi peminjaman = "))
     pengembalian = tanggal + timedelta(days=durasi)
     print()
-    print("Tanggal Peminjaman\t", tanggal.strftime("%d %B %Y"))
+    print("Tanggal Peminjaman\t", tanggal.strftime("%A, %d %B %Y"))
     print("Durasi Peminjaman (hari)", durasi, "Hari")
-    print("Tanggal Pengembalian\t", pengembalian.strftime("%d %B %Y"))
+    print("Tanggal Pengembalian\t", pengembalian.strftime("%A, %d %B %Y"))
 
 
 def canon():
@@ -288,15 +288,15 @@ with open("kamera.csv", 'r') as kurang_csv:
             with open("kamera.csv", "w", newline="") as write_kurang:
                 kurang_writer = csv.writer(write_kurang)
                 lines[1][3] = "-1"
-                lines[1][4] = tanggal.strftime("%d %B %Y")
-                lines[1][5] = pengembalian.strftime("%d %B %Y")
+                lines[1][4] = tanggal.strftime("%A, %d %B %Y")
+                lines[1][5] = pengembalian.strftime("%A, %d %B %Y")
                 kurang_writer.writerows(lines)
         elif cameraterpilih == "Nikon":
             with open("kamera.csv", "w", newline="") as write_kurang:
                 kurang_writer = csv.writer(write_kurang)
                 lines[2][3] = "-1"
-                lines[2][4] = tanggal.strftime("%d %B %Y")
-                lines[2][5] = pengembalian.strftime("%d %B %Y")
+                lines[2][4] = tanggal.strftime("%A, %d %B %Y")
+                lines[2][5] = pengembalian.strftime("%A, %d %B %Y")
                 kurang_writer.writerows(lines)
         elif cameraterpilih == "Sony":
             with open("kamera.csv", "w", newline="") as write_kurang:
