@@ -8,6 +8,54 @@ from datetime import *
 
 
 
+def tak():
+    if xtambahataukurang == 1:
+        with open("kamera.csv", 'r') as tambah_csv:
+            tambah_reader = csv.reader(tambah_csv)
+            lines = list(tambah_reader)
+            if lines[1][3] and lines[2][3] and lines[3][3] and lines[4][3] == "-1":
+                print("")
+                print("Maaf Seluruh Kamera sudah terpinjam")
+                print("")
+                print("Ketik 1 untuk kembali ke menu")
+                print("Atau ketik 2 untuk keluar")
+                campenuh = int(input(""))
+                print("")
+                if campenuh == 1:
+                    campenuh = campenuh-1
+                    tambahataukurang()
+                    tak()
+                elif campenuh == 2:
+                    quit
+                else:
+                    print("Tolong masukkan input yang sesuai")
+                    tak()
+            else:
+                main()
+    elif xtambahataukurang == 2:
+        tambahkamera()
+    elif xtambahataukurang == 3:
+        quit
+    else:
+        print("")
+        print("Input tidak diterima, tolong pilih sesuai menu")
+        tambahataukurang()
+        tak()
+
+def tambahataukurang():
+    global xtambahataukurang
+    print()
+    print("===================================================")
+    print("Selamat Datang di Program Rental Kamera untuk Admin") 
+    print("===================================================")
+    print("                    MENU PROGRAM")
+    print("---------------------------------------------------")
+    print("1. Program Peminjaman Kamera")
+    print("2. Program Pengembalian Kamera")
+    print("3. Exit")
+    print("---------------------------------------------------")
+    xtambahataukurang = int(input("Masukkan pilihan menu: "))
+
     
 def identitas():
     global nama #global biar variabel bisa dipanggil diluar fungsi
@@ -95,25 +143,69 @@ def sewacam():
             if kamera == "A":
                 if lines[1][3] == "-1":
                     print("Maaf Kamera telah dirental")
-                    sewacam()
+                    print("Ketik 1 jika ingin memilih kamera lain")
+                    print("Atau ketik 2 jika ingin keluar dari program")    
+                    def dpilihlain():
+                        pilihlain = int(input())
+                        if pilihlain == 1:
+                            sewacam()
+                        elif pilihlain == 2:
+                            quit()
+                        else:
+                            print("Input tidak sesuai")
+                            dpilihlain()
+                    dpilihlain()
                 else:
                     canon()
             elif kamera == "B":
                 if lines[2][3] == "-1":
                     print("Maaf Kamera telah dirental")
-                    sewacam()
+                    print("Ketik 1 jika ingin memilih kamera lain")
+                    print("Atau ketik 2 jika ingin keluar dari program")
+                    def dpilihlain():
+                        pilihlain = int(input())
+                        if pilihlain == 1:
+                            sewacam()
+                        elif pilihlain == 2:
+                            quit()
+                        else:
+                            print("Input tidak sesuai")
+                            dpilihlain()
+                    dpilihlain()
                 else:
                     nikon()
             elif kamera == "C":
                 if lines[3][3] == "-1":
                     print("Maaf Kamera telah dirental")
-                    sewacam()
+                    print("Ketik 1 jika ingin memilih kamera lain")
+                    print("Atau ketik 2 jika ingin keluar dari program")
+                    def dpilihlain():
+                        pilihlain = int(input())
+                        if pilihlain == 1:
+                            sewacam()
+                        elif pilihlain == 2:
+                            quit()
+                        else:
+                            print("Input tidak sesuai")
+                            dpilihlain()
+                    dpilihlain()
                 else:
                     sony()
             elif kamera == "D":
                 if lines[4][3] == "-1":
                     print("Maaf Kamera telah dirental")
-                    sewacam()
+                    print("Ketik 1 jika ingin memilih kamera lain")
+                    print("Atau ketik 2 jika ingin keluar dari program")
+                    def dpilihlain():
+                        pilihlain = int(input())
+                        if pilihlain == 1:
+                            sewacam()
+                        elif pilihlain == 2:
+                            quit()
+                        else:
+                            print("Input tidak sesuai")
+                            dpilihlain()
+                    dpilihlain()
                 else:
                     fujifilm()
             else:
@@ -177,53 +269,7 @@ def saveid():
         peminjam_writer = csv.DictWriter(csv_peminjam, fieldnames=penyewa_header)
         peminjam_writer.writerows(penyewa_data)
 
-def tak():
-    if xtambahataukurang == 1:
-        with open("kamera.csv", 'r') as tambah_csv:
-            tambah_reader = csv.reader(tambah_csv)
-            lines = list(tambah_reader)
-            if lines[1][3] and lines[2][3] and lines[3][3] and lines[4][3] == "-1":
-                print("")
-                print("Maaf Seluruh Kamera sudah terpinjam")
-                print("")
-                print("Ketik 1 untuk kembali ke menu")
-                print("Atau ketik 2 untuk keluar")
-                campenuh = int(input(""))
-                print("")
-                if campenuh == 1:
-                    campenuh = campenuh-1
-                    tambahataukurang()
-                    tak()
-                elif campenuh == 2:
-                    quit
-                else:
-                    print("Tolong masukkan input yang sesuai")
-                    tak()
-            else:
-                main()
-    elif xtambahataukurang == 2:
-        tambahkamera()
-    elif xtambahataukurang == 3:
-        quit
-    else:
-        print("")
-        print("Input tidak diterima, tolong pilih sesuai menu")
-        tambahataukurang()
-        tak()
 
-def tambahataukurang():
-    global xtambahataukurang
-    print()
-    print("===================================================")
-    print("Selamat Datang di Program Rental Kamera untuk Admin") 
-    print("===================================================")
-    print("                    MENU PROGRAM")
-    print("---------------------------------------------------")
-    print("1. Program Peminjaman Kamera")
-    print("2. Program Pengembalian Kamera")
-    print("3. Exit")
-    print("---------------------------------------------------")
-    xtambahataukurang = int(input("Masukkan pilihan menu: "))
 
 with open("kamera.csv", 'r') as kurang_csv:
     kurang_reader = csv.reader(kurang_csv)
