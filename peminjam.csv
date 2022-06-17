@@ -25,6 +25,7 @@ S,1,1,1,1,Cash,Nikon
 A,1,1,1,1,Cash,Canon
 S,1,1,1,1,Cash,Canon
 S,1,1,1,1,Cash,Nikon
+<<<<<<< HEAD
 a,2,2,2,2,Cash,Sony
 A,1,1,1,1,E-Wallet,Sony
 A,1,1,1,1,Cash,Fujifilm
@@ -40,3 +41,11 @@ A,1,1,1,1,Cash,Canon
 a,1,1,1,1,Cash,Nikon
 A,1,1,1,1,Cash,Sony
 a,1,1,1,1,E-Wallet,Fujifilm
+=======
+=======
+hanin,21,0977,jl,8965,E-Wallet,Canon
+hanin,21,912,jaan,21,Cash,Nikon
+HANIN,21,018212,JALAN,18218,Cash,Fujifilm
+>>>>>>> 49efebda9dd968df643b93255ff34a5630dfca6f
+a,2,2,2,2,Cash,Sony
+>>>>>>> f3ab92176d1e6259460f23a20c2780514c6f9f23
