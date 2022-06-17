@@ -288,28 +288,28 @@ with open("kamera.csv", 'r') as kurang_csv:
             with open("kamera.csv", "w", newline="") as write_kurang:
                 kurang_writer = csv.writer(write_kurang)
                 lines[1][3] = "-1"
-                lines[1][4] = tanggal
+                lines[1][4] = tanggal.strftime("%d %B %Y")
                 lines[1][5] = pengembalian.strftime("%d %B %Y")
                 kurang_writer.writerows(lines)
         elif cameraterpilih == "Nikon":
             with open("kamera.csv", "w", newline="") as write_kurang:
                 kurang_writer = csv.writer(write_kurang)
                 lines[2][3] = "-1"
-                lines[2][4] = tanggal
+                lines[2][4] = tanggal.strftime("%d %B %Y")
                 lines[2][5] = pengembalian.strftime("%d %B %Y")
                 kurang_writer.writerows(lines)
         elif cameraterpilih == "Sony":
             with open("kamera.csv", "w", newline="") as write_kurang:
                 kurang_writer = csv.writer(write_kurang)
                 lines[3][3] = "-1"
-                lines[3][4] = tanggal
+                lines[3][4] = tanggal.strftime("%d %B %Y")
                 lines[3][5] = pengembalian.strftime("%d %B %Y")
                 kurang_writer.writerows(lines)
         else:
             with open("kamera.csv", "w", newline="") as write_kurang:
                 kurang_writer = csv.writer(write_kurang)
                 lines[4][3] = "-1"
-                lines[4][4] = tanggal
+                lines[4][4] = tanggal.strftime("%d %B %Y")
                 lines[4][5] = pengembalian.strftime("%d %B %Y")
                 kurang_writer.writerows(lines)
 
