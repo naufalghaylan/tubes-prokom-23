@@ -345,7 +345,7 @@ def main():
     print("Alamat\t\t\t=", alamat)
     print("Telefon\t\t\t=", telefon)
     print("Kamera\t\t\t=", cameraterpilih)
-    print("Tanggal Peminjaman\t=", tanggal)
+    print("Tanggal Peminjaman\t=", tanggal.strftime("%d %B %Y"))
     print("Durasi Peminjaman\t=", durasi, "Hari")
     print("Tanggal Pengembalian\t=", pengembalian.strftime("%d %B %Y"))
     print("Metode Pembayaran\t=", metodepem)
